@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery-2.1.4.js"></script>
+    <link rel="stylesheet" type="text/css" href="remoteControl.css">
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title></title>
+
+</head>
+<body>
+<div id="all">
+    <div id="title">
+<button id="arrow-back"></button>
+        <p>手机遥控器</p>
+    </div>
+    <div id="main">
+   <div id="text1">
+       <p>婚礼主持人遥控器</p>
+       <ul><li>已连接</li></ul>
+   </div>
+
+        <div id="btnMain">
+           <div><button class="btnPlay"></button></div>
+        </div>
+
+        <div class="btnChose">
+           <div class="active"><button>摇马</button></div>
+            <div class="basic"><button>抽奖</button></div>
+            <div class="basic"><button>众拍婚礼</button></div>
+            <div class="basic"><button>送福闹喜</button></div>
+        </div>
+
+        <div id="code"><button>全屏显示二维码</button></div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $(".btnChose>div>button").click(function(){
+            $(this).parent().removeClass("basic");
+            $(".btnChose").find(".active").removeClass("active").addClass("basic");
+            $(this).parent().removeClass("basic");
+            $(this).parent().addClass("active");
+        })
+
+    })
+
+    $(document).ready(function(){
+        $("#btnMain>div>button").click(function(){
+            $(this).toggleClass("btnPlay2")
+        })
+    })
+
+    $(document).ready(function(){
+        var $this1=$("#code>button");
+        $("#code>button").bind("click",function(){
+
+            $this1.text()=="取消" ? $this1.text("全屏显示二维码") : $this1.text("取消")
+        })
+    })
+
+
+</script>
+</body>
+</html>
